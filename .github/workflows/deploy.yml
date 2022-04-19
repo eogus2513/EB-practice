@@ -34,10 +34,10 @@ jobs:
           utcOffset: "+09:00"
 
       - name: Generate deployment package
-                - run: |
-                mkdir -p deploy
-                cp Dockerrun.aws.json deploy/Dockerrun.aws.json
-                cd deploy && zip -r deploy.zip .
+        run: |
+          mkdir -p deploy
+          cp Dockerrun.aws.json deploy/Dockerrun.aws.json
+          cd deploy && zip -r deploy.zip .
 
       - name: Beanstalk Deploy
       - uses: einaregilsson/beanstalk-deploy@v20
