@@ -3,10 +3,5 @@ version: '3.8'
 services:
   beanstalk-flask:
     image: "jeongdaehyun/beanstalk-spring"
-    environment:
-      - DB_NAME=${DB_NAME}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_URL=${DB_URL}
-      - DB_USERNAME=${DB_USERNAME}
     ports:
       - "8080:8080"
