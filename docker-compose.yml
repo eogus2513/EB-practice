@@ -2,12 +2,11 @@ version: '3.8'
 
 services:
   beanstalk-spring:
-    build: .
+    image: "jeongdaehyun/beanstalk-spring"
     environment:
       - DEBUG=1
     env_file:
       - .env
-    container_name: "jeongdaehyun/beanstalk-spring"
     ports:
       - "8080:8080"
       - "3306:3306"
