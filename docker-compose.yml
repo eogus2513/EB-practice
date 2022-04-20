@@ -2,6 +2,11 @@ version: '3.8'
 
 services:
   beanstalk-flask:
-    image: "jeongdaehyun/beanstalk-spring"
+    build: .
+    environment:
+      - DEBUG=1
+    env_file:
+      - .env
     ports:
       - "8080:8080"
+      - "3306:3306"
