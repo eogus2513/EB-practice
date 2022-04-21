@@ -52,8 +52,8 @@ jobs:
           
       - name: Generate deployment package
         run: |
+          echo .env
           mkdir -p deploy
-          cp .env deploy/.env
           cp docker-compose.yml deploy/docker-compose.yml
           cd deploy && zip -r deploy.zip .
 
