@@ -38,24 +38,12 @@ jobs:
       - name: Push on Dockerhub
         run: docker push jeongdaehyun/beanstalk-spring
 
-      - name: create env file
-        run: |
-          touch .env
-          echo "${{ secrets.ENV }}" >> .env
-
       - name: Get current time
         uses: 1466587594/get-current-time@v2
         id: current-time
         with:
           format: YYYY-MM-DDTHH-mm-ss
           utcOffset: "+09:00"
-          
-      - name: Generate deployment package
-        run: |
-          echo .env
-          mkdir -p deploy
-          cp docker-compose.yml deploy/docker-compose.yml
-          cd deploy && zip -r deploy.zip .
 
       - name: Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v20
@@ -66,5 +54,5 @@ jobs:
           environment_name: demo
           version_label: ${{steps.current-time.outputs.formattedTime}}
           region: ap-northeast-2
-          deployment_package: deploy.zip
+          deployment_package: docker-compose.yml
           wait_for_environment_recovery: 180
