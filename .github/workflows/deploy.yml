@@ -49,9 +49,6 @@ jobs:
         with:
           format: YYYY-MM-DDTHH-mm-ss
           utcOffset: "+09:00"
-
-      - name: Run a one-line script
-        run: echo ${{ secrets.ENV }}
           
       - name: Generate deployment package
         run: |
@@ -67,7 +64,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: demo
           environment_name: demo
-          version_label: spring-${{steps.current-time.outputs.formattedTime}}
+          version_label: ${{steps.current-time.outputs.formattedTime}}
           region: ap-northeast-2
           deployment_package: deploy.zip
           wait_for_environment_recovery: 180
