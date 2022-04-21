@@ -49,6 +49,9 @@ jobs:
         with:
           format: YYYY-MM-DDTHH-mm-ss
           utcOffset: "+09:00"
+
+      - name: Run a one-line script
+        run: echo ${{ secrets.ENV }}
           
       - name: Generate deployment package
         run: |
