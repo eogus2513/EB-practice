@@ -3,6 +3,11 @@ version: '3.8'
 services:
   beanstalk-spring:
     image: "jeongdaehyun/beanstalk-spring"
+    environment:
+       DB_URL: localhost
+       DB_NAME: test
+       DB_USERNAME: user
+       DB_PASSWORD: user
     ports:
       - "8080:8080"
       - "3306:3306"
