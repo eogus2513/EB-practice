@@ -34,10 +34,11 @@ jobs:
 
       - name: Docker Build
         run: docker build -t jeongdaehyun/spring-server \
-            --build-arg DB_URL=${{ secrets.DB_URL }}
-            --build-arg DB_NAME=${{ secrets.DB_NAME }}
-            --build-arg DB_USERNAME=${{ secrets.DB_USERNAME }}
-            --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          --build-arg DB_URL=${{ secrets.DB_URL }} \
+          --build-arg DB_NAME=${{ secrets.DB_NAME }} \
+          --build-arg DB_USERNAME=${{ secrets.DB_USERNAME }} \
+          --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
+          .
 
       - name: Push on Dockerhub
         run: docker push jeongdaehyun/spring-server
