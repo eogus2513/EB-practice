@@ -33,10 +33,14 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker Build
-        run: docker build -t jeongdaehyun/beanstalk-spring .
+        run: docker build -t jeongdaehyun/spring-server \
+            --build-arg DB_URL=${{ secrets.DB_URL }}
+            --build-arg DB_NAME=${{ secrets.DB_NAME }}
+            --build-arg DB_USERNAME=${{ secrets.DB_USERNAME }}
+            --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }}
 
       - name: Push on Dockerhub
-        run: docker push jeongdaehyun/beanstalk-spring
+        run: docker push jeongdaehyun/spring-server
 
       - name: Get current time
         uses: 1466587594/get-current-time@v2
