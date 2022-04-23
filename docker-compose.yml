@@ -2,6 +2,6 @@ version: '3.8'
 
 services:
   Back-End:
-    image: "jeongdaehyun/spring-server"
+    image: "ghcr.io/eogus2513/spring-server:lts"
     ports:
       - "80:8080"
