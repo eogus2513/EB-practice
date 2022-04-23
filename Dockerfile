@@ -1,6 +1,5 @@
 FROM openjdk:11-jre-slim
 
-EXPOSE 8080
 ENV TZ=Asia/Seoul
 
 ARG DB_URL

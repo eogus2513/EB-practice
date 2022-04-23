@@ -38,7 +38,8 @@ jobs:
             --build-arg DB_URL=${{ secrets.DB_URL }}
             --build-arg DB_NAME=${{ secrets.DB_NAME }}
             --build-arg DB_USERNAME=${{ secrets.DB_USERNAME }}
-            --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }} .
+            --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+            .
             
       - name: Push image
         run: docker push ${{ secrets.GHCR_IMAGE_NAME }}
